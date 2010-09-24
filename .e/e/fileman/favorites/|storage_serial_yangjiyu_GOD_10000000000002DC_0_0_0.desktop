@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Link
+X-Enlightenment-Type=Removable
+X-Enlightenment-Removable-State=Full
+Name=CentOS-5.5-i386-LiveCD-Release2
+Icon=drive-optical
+Comment=可移动设备
+URL=file://org/freedesktop/Hal/devices/volume_label_CentOS_5_5_i386_LiveCD_Release2

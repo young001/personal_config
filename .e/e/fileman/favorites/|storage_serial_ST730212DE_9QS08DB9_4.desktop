@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Link
+X-Enlightenment-Type=Removable
+X-Enlightenment-Removable-State=Full
+Name=ATA ST730212DE - 93 MiB
+Icon=drive-harddisk
+Comment=可移动设备
+URL=file://org/freedesktop/Hal/devices/volume_uuid_7ac4dd82_7fa0_4b60_a7f1_4d544958c55f
