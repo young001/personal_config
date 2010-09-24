@@ -1,0 +1,76 @@
+# Linux Mint 8 - Fluxbox CE
+#      Startup Script
+#
+# REMOVE THE COMMENT SYMBOL (#) TO ENABLE SOMETHING
+# ADD THE COMMENT SYMBOL (#) TO DISABLE SOMETHING
+#
+# Turn off beeps:
+# xset -b
+#
+# Increase the keyboard repeat-rate:
+# xset r rate 195 35
+#
+# Your own fonts-dir:
+# xset +fp "$HOME/.fonts"
+#
+# Your favourite mouse cursor:
+# xsetroot -cursor_name right_ptr
+#
+# Change your keymap:
+# xmodmap "$HOME/.Xmodmap"
+
+#-----------------------------------------------------------------
+# DO NOT MODIFY THIS SECTION UNLESS YOU KNOW WHAT YOU ARE DOING!
+# kill apps to prevent 2 instances running in case of FB crash
+killall conky python nm-applet system-config-printer-applet bluetooth-applet xfce4vino pyvolume xscreensaver mintUpdate
+
+# restore screen resolution and wallpaper
+mintfb-randr restore &
+
+# export environment variable for games
+export PATH=${PATH}:/usr/games
+
+# create GTK bookmarks
+#xdg-user-dirs-gtk-update &
+
+# Start mint-fm2
+cd /usr/lib/linuxmint/mint-fm2 && mint-fm2 start
+cd
+
+# run thunar daemon for volume management
+#Thunar --daemon &
+
+# These run the default Linux Mint apps.
+sh -c 'test -e /var/cache/jockey/check || exec jockey-gtk --check 60' &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+setxkbmap -option terminate:ctrl_alt_bksp
+mintDesktop.sh & 
+
+#-----------------------------------------------------------------
+#  ADD APPLICATIONS YOU WISH TO LAUNCH AT LOGIN IN THIS SECTION
+#   MAKE SURE TO ADD THE "&" SYMBOL TO THE END OF EACH COMMAND
+#-----------------------------------------------------------------
+
+#/usr/lib/linuxmint/mintUpdate/mintUpdate.py &
+nm-applet &
+#xscreensaver -no-splash &
+sh -c "sleep 30; exec system-config-printer-applet > /dev/null 2> /dev/null" &
+#bluetooth-applet &
+#/usr/bin/xfce4-volumed &
+#pyvolume &
+#xfce4vino &
+mintinput1 &
+pidgin &
+xfce4-power-manager &
+tint2 -c ~/.tint2rc &
+#mintwelcome-launcher &
+
+#-----------------------------------------------------------------
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+exec /usr/bin/fluxbox
+
+# or if you want to keep a log:
+# exec /usr/bin/fluxbox -log "$fluxdir/log"
