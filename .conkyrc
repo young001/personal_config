@@ -1,0 +1,72 @@
+background yes
+override_utf8_locale yes
+font Sans:size=9
+xftfont Sans:size=9
+use_xft yes
+xftalpha 0.9
+ 
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_type override
+#own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+minimum_size 170 5
+maximum_width 170
+ 
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+#alignment none
+gap_x 10
+gap_y 50
+no_buffers yes
+cpu_avg_samples 2
+override_utf8_locale yes
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer none
+out_to_console no
+ 
+default_color red
+default_shade_color black
+default_outline_color blue
+ 
+TEXT
+$alignc${color red}${font }today: ${time %Y-%m-%d-%H-%M-%S}
+${color }UpTime:$alignr${color }$uptime
+${color white}$stippled_hr
+${color #325a96}CPU Temp:$alignr${color } $acpitemp°C
+${color #325a96}CPU Used:$alignr${color } $cpu% 
+${color }$stippled_hr
+${color }Processes:$alignr${color }$processes  ($running_processes running)
+${color white}$stippled_hr 
+${color }Highest CPU:$alignr  PID   CPU%
+${color #ddaa00}${top name 1}$alignr${top pid 1}  ${top cpu 1}
+${color blue}${top name 2}$alignr${top pid 2}  ${top cpu 2}
+${color blue}${top name 3}$alignr${top pid 3}  ${top cpu 3}
+ 
+${color }Highest MEM:$alignr  PID   MEM%
+${color #ddaa00}${top_mem name 1}$alignr${top_mem pid 1}  ${top_mem mem 1}
+${color blue}${top_mem name 2}$alignr${top_mem pid 2}  ${top_mem mem 2}
+${color blue}${top_mem name 3}$alignr${top_mem pid 3}  ${top_mem mem 3}
+${color white}$stippled_hr
+${color}eth0(U):${color #325a96} $alignr${upspeed eth0}k/s  
+${color}eth0(D):${color #325a96} $alignr${downspeed eth0}k/s 
+${color}Total Download:${color #325a96} $alignr${totaldown eth0}
+${color}Total Up: ${color #325a96}  $alignr${totalup eth0} 
+${color white}$stippled_hr
+${color }MEM:${color} $memperc%$alignr$mem/$memmax
+${membar 3,160}
+${color }Hard Drive Temp: $alignr${hddtemp /dev/sda} °C
+${color }ROOT:$alignr${color}${fs_used /}/${fs_size /}
+${fs_bar 3,160 /}
+${color }HOME:$alignr${color}${fs_used /home}/${fs_size /home}
+${fs_bar 3,160 /home}
+${alignc}young001 $kernel on $machine

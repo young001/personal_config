@@ -1,0 +1,2 @@
+#!/bin/bash
+python /mnt/eeestorage/001常用软件/localproxy-2.0.0/proxy.py
